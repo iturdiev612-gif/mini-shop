@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Shop — интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1>Mini Shop</h1>
+    <button id="cartBtn" class="cart-btn" type="button">Корзина <span id="cartCount" class="badge">0</span></button>
+  </header>
+
+  <main class="container">
+    <section class="filters">
+      <input type="search" id="searchInput" placeholder="Поиск по названию..." aria-label="Поиск по названию">
+      <select id="categorySelect" aria-label="Категория">
+        <option value="all">Все категории</option>
+      </select>
+      <select id="sortSelect" aria-label="Сортировка">
+        <option value="default">Без сортировки</option>
+        <option value="asc">Цена: сначала дешевле</option>
+        <option value="desc">Цена: сначала дороже</option>
+      </select>
+    </section>
+    <p id="status" class="status"></p>
+    <p id="resultInfo" class="result-info"></p>
+    <section id="products" class="grid"></section>
+  </main>
+
+  <div id="overlay" class="overlay"></div>
+  <aside id="cartPanel" class="cart-panel" aria-label="Корзина">
+    <div class="panel-head">
+      <h2>Корзина</h2>
+      <button id="closeCart" class="icon-btn" type="button" aria-label="Закрыть корзину">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="panel-foot">
+      <div class="total-row"><span>Итого:</span><strong id="cartTotal">$0.00</strong></div>
+      <div class="foot-btns">
+        <button id="checkoutBtn" class="btn primary" type="button">Оформить заказ</button>
+        <button id="clearBtn" class="btn" type="button">Очистить</button>
+      </div>
+      <form id="checkoutForm" class="checkout" novalidate>
+        <label>Имя
+          <input id="nameInput" type="text" autocomplete="name">
+          <span id="nameError" class="error"></span>
+        </label>
+        <label>Телефон
+          <input id="phoneInput" type="tel" autocomplete="tel" placeholder="+996 555 123 456">
+          <span id="phoneError" class="error"></span>
+        </label>
+        <label>Адрес доставки
+          <textarea id="addressInput" rows="2"></textarea>
+          <span id="addressError" class="error"></span>
+        </label>
+        <button type="submit" class="btn primary">Подтвердить заказ</button>
+      </form>
+      <p id="orderMessage" class="order-message"></p>
+    </div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
